@@ -9,7 +9,7 @@
 import Foundation
 import GameplayKit
 
-struct MemoryGame<CardContent> {
+struct MemoryGame<CardContent> where CardContent: Equatable {
     var cards: [Card]
     
     init(countPairs: Int, createContentFactory: (Int) -> CardContent) {
@@ -21,10 +21,30 @@ struct MemoryGame<CardContent> {
         }
     }
     
+    private var indexOfTheOneAndOnlyOneFaceUpCard: Int? {
+        get {
+            let faceUpCards = cards.indices.filter { cards[$0].isFaceUp }
+            return faceUpCards.count == 1 ? faceUpCards.first! : nil
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = index == newValue
+            }
+        }
+    }
+    
     mutating func choose(card: Card) {
-        guard let choosenCardIndex = cards.firstIndex(where: { $0.id == card.id }) else { return }
+        guard let choosenCardIndex = cards.firstIndex(matching: card) else { return }
+        guard !cards[choosenCardIndex].isFaceUp, !cards[choosenCardIndex].isMatched else { return }
         
-        cards[choosenCardIndex].isFaceUp = !cards[choosenCardIndex].isFaceUp
+        guard let potentialMatchIndex = indexOfTheOneAndOnlyOneFaceUpCard else { indexOfTheOneAndOnlyOneFaceUpCard = choosenCardIndex; return }
+        
+        if cards[choosenCardIndex].content == cards[potentialMatchIndex].content {
+            cards[choosenCardIndex].isMatched = true
+            cards[potentialMatchIndex].isMatched = true
+        }
+        
+        cards[choosenCardIndex].isFaceUp = true
     }
     
     mutating func shuffleCards() {

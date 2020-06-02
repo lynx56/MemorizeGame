@@ -20,6 +20,7 @@
 		88A566582486DDB500263A10 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A566572486DDB500263A10 /* GridLayout.swift */; };
 		88A5665A2486DF7000263A10 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A566592486DF7000263A10 /* GridView.swift */; };
 		88A5665C2486E19300263A10 /* Array+Matching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5665B2486E19300263A10 /* Array+Matching.swift */; };
+		88A5665E2486F1A900263A10 /* Array+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5665D2486F1A900263A10 /* Array+Single.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		88A566572486DDB500263A10 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		88A566592486DF7000263A10 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		88A5665B2486E19300263A10 /* Array+Matching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Matching.swift"; sourceTree = "<group>"; };
+		88A5665D2486F1A900263A10 /* Array+Single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Single.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				887EDCD92480584C00CDFCA2 /* Array+Shuffle.swift */,
 				88A5665B2486E19300263A10 /* Array+Matching.swift */,
+				88A5665D2486F1A900263A10 /* Array+Single.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				88A5664A2485328A00263A10 /* MemoryGame.swift in Sources */,
 				88A5664C248532A800263A10 /* EmojiMemoryGame.swift in Sources */,
 				88A5665A2486DF7000263A10 /* GridView.swift in Sources */,
+				88A5665E2486F1A900263A10 /* Array+Single.swift in Sources */,
 				88A5665C2486E19300263A10 /* Array+Matching.swift in Sources */,
 				887EDCB6247F9AE100CDFCA2 /* AppDelegate.swift in Sources */,
 				887EDCDA2480584C00CDFCA2 /* Array+Shuffle.swift in Sources */,

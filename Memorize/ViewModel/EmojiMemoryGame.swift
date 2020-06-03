@@ -11,18 +11,23 @@ import Foundation
 class EmojiMemoryGame: ObservableObject {
     @Published private(set) var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
-    static func createMemoryGame() -> MemoryGame<String> {
-        let emoji = ["👻", "💀", "☠️", "👽", "👾", "👹", "😈", "🎃", "💩", "🤖", "🦇", "🐙"]
+    static private func createMemoryGame() -> MemoryGame<String> {
+        let emoji = ["👻", "💀", "👽", "👾", "👹", "😈", "🎃", "💩", "🤖", "🦇", "🐙", "🕷"]
         var game = MemoryGame(countPairs: emoji.count) { return emoji[$0] }
         game.shuffleCards()
         return game
     }
     
+    var cards: [MemoryGame<String>.Card] {
+        return model.cards
+    }
+    
+    //MARK: - Intent(s)
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
     }
     
-    var cards: [MemoryGame<String>.Card] {
-        return model.cards
+    func resetGame() {
+        model = EmojiMemoryGame.createMemoryGame()
     }
 }

@@ -21,6 +21,8 @@
 		88A5665A2486DF7000263A10 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A566592486DF7000263A10 /* GridView.swift */; };
 		88A5665C2486E19300263A10 /* Array+Matching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5665B2486E19300263A10 /* Array+Matching.swift */; };
 		88A5665E2486F1A900263A10 /* Array+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5665D2486F1A900263A10 /* Array+Single.swift */; };
+		88A566602487927400263A10 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5665F2487927400263A10 /* Pie.swift */; };
+		88A566622487982100263A10 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A566612487982100263A10 /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		88A566592486DF7000263A10 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		88A5665B2486E19300263A10 /* Array+Matching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Matching.swift"; sourceTree = "<group>"; };
 		88A5665D2486F1A900263A10 /* Array+Single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Single.swift"; sourceTree = "<group>"; };
+		88A5665F2487927400263A10 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		88A566612487982100263A10 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				887EDCB9247F9AE100CDFCA2 /* EmojiMemoryGameView.swift */,
-				88A566572486DDB500263A10 /* GridLayout.swift */,
 				88A566592486DF7000263A10 /* GridView.swift */,
+				88A566572486DDB500263A10 /* GridLayout.swift */,
+				88A5665F2487927400263A10 /* Pie.swift */,
+				88A566612487982100263A10 /* Cardify.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,8 +273,10 @@
 				88A5665E2486F1A900263A10 /* Array+Single.swift in Sources */,
 				88A5665C2486E19300263A10 /* Array+Matching.swift in Sources */,
 				887EDCB6247F9AE100CDFCA2 /* AppDelegate.swift in Sources */,
+				88A566622487982100263A10 /* Cardify.swift in Sources */,
 				887EDCDA2480584C00CDFCA2 /* Array+Shuffle.swift in Sources */,
 				887EDCB8247F9AE100CDFCA2 /* SceneDelegate.swift in Sources */,
+				88A566602487927400263A10 /* Pie.swift in Sources */,
 				88A566582486DDB500263A10 /* GridLayout.swift in Sources */,
 				887EDCBA247F9AE100CDFCA2 /* EmojiMemoryGameView.swift in Sources */,
 			);

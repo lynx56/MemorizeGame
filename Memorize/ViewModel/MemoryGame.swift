@@ -32,6 +32,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
     }
     
+    private(set) var totalScore = 0
+    private var penalty = 1
+    private var reward = 2
+    
     mutating func choose(card: Card) {
         guard let choosenCardIndex = cards.firstIndex(matching: card) else { return }
         guard !cards[choosenCardIndex].isFaceUp, !cards[choosenCardIndex].isMatched else { return }
@@ -41,8 +45,12 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         if cards[choosenCardIndex].content == cards[potentialMatchIndex].content {
             cards[choosenCardIndex].isMatched = true
             cards[potentialMatchIndex].isMatched = true
+            totalScore += reward
+        } else {
+            if card.alreadySeen {
+                totalScore -= penalty
+            }
         }
-        
         cards[choosenCardIndex].isFaceUp = true
     }
     
@@ -52,6 +60,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     struct Card: Identifiable {
         var isFaceUp: Bool = false {
+            willSet {
+                alreadySeen = alreadySeen == true || isFaceUp == true && newValue == false
+            }
             didSet {
                 isFaceUp ? startUsingBonusTime() : stopUsingBonusTime()
             }
@@ -63,6 +74,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
         var content: CardContent
         var id: Int
+        var alreadySeen: Bool = false
         
         //MARK: - Time Calculations
         

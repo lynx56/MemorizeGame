@@ -12,22 +12,30 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        VStack {
-            GridView(items: viewModel.cards) { card in
-                CardView(card: card).onTapGesture {
-                    withAnimation(.linear(duration: 0.75)) {
-                        self.viewModel.choose(card: card)
+        NavigationView {
+            VStack {
+                withAnimation {
+                    Text("Score: \(viewModel.score)")
+                }
+                GridView(items: viewModel.cards) { card in
+                    CardView(card: card).onTapGesture {
+                        withAnimation(.linear(duration: 0.75)) {
+                            self.viewModel.choose(card: card)
+                        }
                     }
+                    .foregroundColor(self.viewModel.cardColor)
+                    .padding(5)
                 }
-                .padding(5)
+                .padding()
+                .foregroundColor(.orange)
+                Button(action: {
+                    withAnimation(.easeInOut) {
+                        self.viewModel.resetGame()
+                    }
+                }, label: { Text("New Game") })
             }
-            .padding()
-            .foregroundColor(.orange)
-            Button(action: {
-                withAnimation(.easeInOut) {
-                    self.viewModel.resetGame()
-                }
-            }, label: { Text("New Game") })
+            .foregroundColor(.blue)
+            .navigationBarTitle(Text(viewModel.gameName))
         }
     }
 }
@@ -90,7 +98,7 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGame()
+        let game = EmojiMemoryGame(theme: .halloween)
         game.choose(card: game.cards[0])
         return EmojiMemoryGameView(viewModel: game)
     }

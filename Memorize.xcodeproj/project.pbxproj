@@ -24,6 +24,9 @@
 		88A566602487927400263A10 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5665F2487927400263A10 /* Pie.swift */; };
 		88A566622487982100263A10 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A566612487982100263A10 /* Cardify.swift */; };
 		88A5666624890E2C00263A10 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5666524890E2C00263A10 /* Theme.swift */; };
+		88A5666D248A623900263A10 /* ColorifyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5666C248A623900263A10 /* ColorifyNavigationBar.swift */; };
+		88A5666F248A62D100263A10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5666E248A62D100263A10 /* CardView.swift */; };
+		88A56674248A8C7500263A10 /* UIColor+mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A56673248A8C7500263A10 /* UIColor+mix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		88A5665F2487927400263A10 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		88A566612487982100263A10 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		88A5666524890E2C00263A10 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		88A5666C248A623900263A10 /* ColorifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorifyNavigationBar.swift; sourceTree = "<group>"; };
+		88A5666E248A62D100263A10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		88A56673248A8C7500263A10 /* UIColor+mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+mix.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,11 +145,12 @@
 		88A5664E24854BA000263A10 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88A56670248A636600263A10 /* CustomModifiers */,
 				887EDCB9247F9AE100CDFCA2 /* EmojiMemoryGameView.swift */,
+				88A5666E248A62D100263A10 /* CardView.swift */,
 				88A566592486DF7000263A10 /* GridView.swift */,
 				88A566572486DDB500263A10 /* GridLayout.swift */,
 				88A5665F2487927400263A10 /* Pie.swift */,
-				88A566612487982100263A10 /* Cardify.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +161,7 @@
 				887EDCD92480584C00CDFCA2 /* Array+Shuffle.swift */,
 				88A5665B2486E19300263A10 /* Array+Matching.swift */,
 				88A5665D2486F1A900263A10 /* Array+Single.swift */,
+				88A56673248A8C7500263A10 /* UIColor+mix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,6 +175,15 @@
 				887EDCC0247F9AE400CDFCA2 /* LaunchScreen.storyboard */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		88A56670248A636600263A10 /* CustomModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				88A566612487982100263A10 /* Cardify.swift */,
+				88A5666C248A623900263A10 /* ColorifyNavigationBar.swift */,
+			);
+			path = CustomModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +289,10 @@
 			files = (
 				88A5664A2485328A00263A10 /* MemoryGame.swift in Sources */,
 				88A5664C248532A800263A10 /* EmojiMemoryGame.swift in Sources */,
+				88A56674248A8C7500263A10 /* UIColor+mix.swift in Sources */,
+				88A5666D248A623900263A10 /* ColorifyNavigationBar.swift in Sources */,
 				88A5665A2486DF7000263A10 /* GridView.swift in Sources */,
+				88A5666F248A62D100263A10 /* CardView.swift in Sources */,
 				88A5665E2486F1A900263A10 /* Array+Single.swift in Sources */,
 				88A5665C2486E19300263A10 /* Array+Matching.swift in Sources */,
 				887EDCB6247F9AE100CDFCA2 /* AppDelegate.swift in Sources */,

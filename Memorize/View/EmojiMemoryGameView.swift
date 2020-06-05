@@ -14,83 +14,55 @@ struct EmojiMemoryGameView: View {
     var body: some View {
         NavigationView {
             VStack {
-                withAnimation {
-                    Text("Score: \(viewModel.score)")
-                }
+                Divider()
+                HStack {
+                    Spacer()
+                    Text("Score: \(viewModel.score)").padding(.trailing, trailingSpace)
+                }.foregroundColor(secondaryColor)
+                            
                 GridView(items: viewModel.cards) { card in
                     CardView(card: card).onTapGesture {
                         withAnimation(.linear(duration: 0.75)) {
                             self.viewModel.choose(card: card)
                         }
                     }
-                    .foregroundColor(self.viewModel.cardColor)
-                    .padding(5)
+                    .foregroundColor(Color(self.viewModel.cardColor))
+                    .padding(self.cardSpace)
                 }
                 .padding()
-                .foregroundColor(.orange)
+                
                 Button(action: {
                     withAnimation(.easeInOut) {
                         self.viewModel.resetGame()
                     }
-                }, label: { Text("New Game") })
+                }, label: {
+                    Text("New Game")
+                        .padding(ButtonConstants.textInsets)
+                        .foregroundColor(.white)
+                }).padding(.horizontal)
+                    .background(secondaryColor)
+                    .cornerRadius(ButtonConstants.cornerRadius)
+                    .padding(.horizontal)
             }
             .foregroundColor(.blue)
             .navigationBarTitle(Text(viewModel.gameName))
+            .navigationBarColor(viewModel.cardColor.darker(0.15))
         }
     }
+    
+    //MARK: - Drawing constants
+    enum ButtonConstants {
+        static let textInsets = EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
+        static let cornerRadius: CGFloat = 10
+    }
+    
+    let secondaryColor = Color(red: 0.2627, green: 0.5922, blue: 1)
+    let trailingSpace: CGFloat = 22
+    let cardSpace: CGFloat = 5
+    let navigationBarColor = UIColor.systemPink
 }
 
-struct CardView: View {
-    var card: MemoryGame<String>.Card
-    
-    var body: some View {
-        GeometryReader { geometry in
-            self.body(for: geometry.size)
-        }
-    }
-    
-    @State private var animatingBonusRemaining: Double = 0
-    
-    private func startBonusTimeAnimation() {
-        animatingBonusRemaining = card.bonusRemaining
-        withAnimation(.linear(duration: card.bonusTimeLimit)) {
-            animatingBonusRemaining = 0
-        }
-    }
-    
-    @ViewBuilder
-    private func body(for size: CGSize) -> some View {
-        if card.isFaceUp || !card.isMatched {
-            ZStack {
-                Group {
-                    if card.isConsumingBonusTime {
-                        Pie(startAngle: .degrees(.zero - 90),
-                            endAngle: .degrees(-animatingBonusRemaining*360 - 90),
-                            clockwise: true)
-                            .onAppear() {
-                                self.startBonusTimeAnimation()
-                        }
-                    } else {
-                        Pie(startAngle: .degrees(.zero - 90),
-                            endAngle: .degrees(-card.bonusRemaining*360 - 90),
-                            clockwise: true)
-                    }
-                }.opacity(0.4)
-                 .padding(5)
-                Text(card.content)
-                    .font(Font.system(size: fontSize(for: size)))
-            }
-            .cardify(isFaceUp: card.isFaceUp)
-            .transition(.scale)
-        }
-    }
-    
-    
-    //MARK: - Drawing Constants
-    private func fontSize(for size: CGSize) -> CGFloat {
-        return min(size.height, size.width) * 0.7
-    }
-}
+
 
 
 

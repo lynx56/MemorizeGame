@@ -60,6 +60,7 @@ extension Theme {
         case .faces: return .systemYellow
         case .transport: return .systemGray
         case .food: return .systemPink
+        case .tiktok: return UIColor.black.lighter(0.25)
         }
     }
 }

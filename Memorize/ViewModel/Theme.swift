@@ -15,6 +15,7 @@ enum Theme: String, CaseIterable {
     case faces = "Faces"
     case transport = "Transport"
     case food = "Food"
+    case tiktok = "TikTok"
     
     var emoji: [String] {
         switch self {
@@ -30,6 +31,8 @@ enum Theme: String, CaseIterable {
             return ["🍟", "🌮", "🍕", "🥓", "🥗", "🥟", "🍣", "🥯", "🥐", "🍗", "🧆", "🍝"]
         case .sport:
             return ["⚽️", "🏀", "🏈", "⚾️", "🎾", "🏐", "🎱", "🥏", "🏓", "🏏", "🥊", "🥌"]
+        case .tiktok:
+            return ["🗿", "🗿", "👑", "👑", "🤡", "🔥"]
         }
     }
 }

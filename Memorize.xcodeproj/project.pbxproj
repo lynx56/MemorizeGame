@@ -27,6 +27,7 @@
 		88A5666D248A623900263A10 /* ColorifyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5666C248A623900263A10 /* ColorifyNavigationBar.swift */; };
 		88A5666F248A62D100263A10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5666E248A62D100263A10 /* CardView.swift */; };
 		88A56674248A8C7500263A10 /* UIColor+mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A56673248A8C7500263A10 /* UIColor+mix.swift */; };
+		88FFA63724BB8F9200A7F6D2 /* Color+RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFA63624BB8F9200A7F6D2 /* Color+RGBA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		88A5666C248A623900263A10 /* ColorifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorifyNavigationBar.swift; sourceTree = "<group>"; };
 		88A5666E248A62D100263A10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		88A56673248A8C7500263A10 /* UIColor+mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+mix.swift"; sourceTree = "<group>"; };
+		88FFA63624BB8F9200A7F6D2 /* Color+RGBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RGBA.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				88A5665B2486E19300263A10 /* Array+Matching.swift */,
 				88A5665D2486F1A900263A10 /* Array+Single.swift */,
 				88A56673248A8C7500263A10 /* UIColor+mix.swift */,
+				88FFA63624BB8F9200A7F6D2 /* Color+RGBA.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				88A5664A2485328A00263A10 /* MemoryGame.swift in Sources */,
 				88A5664C248532A800263A10 /* EmojiMemoryGame.swift in Sources */,
 				88A56674248A8C7500263A10 /* UIColor+mix.swift in Sources */,
+				88FFA63724BB8F9200A7F6D2 /* Color+RGBA.swift in Sources */,
 				88A5666D248A623900263A10 /* ColorifyNavigationBar.swift in Sources */,
 				88A5665A2486DF7000263A10 /* GridView.swift in Sources */,
 				88A5666F248A62D100263A10 /* CardView.swift in Sources */,

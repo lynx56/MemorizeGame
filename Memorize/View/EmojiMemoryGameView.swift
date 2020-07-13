@@ -26,7 +26,7 @@ struct EmojiMemoryGameView: View {
                             self.viewModel.choose(card: card)
                         }
                     }
-                    .foregroundColor(Color(self.viewModel.cardColor))
+                    .foregroundColor(self.viewModel.cardColor)
                     .padding(self.cardSpace)
                 }
                 .padding()
@@ -46,7 +46,7 @@ struct EmojiMemoryGameView: View {
             }
             .foregroundColor(.blue)
             .navigationBarTitle(Text(viewModel.gameName))
-            .navigationBarColor(viewModel.cardColor.darker(0.15))
+            .navigationBarColor(viewModel.topColor)
         }
     }
     

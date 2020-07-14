@@ -23,7 +23,7 @@ class EmojiMemoryGame: ObservableObject {
     
     init(theme: Theme) {
         model = EmojiMemoryGame.createMemoryGame(emoji: theme.emoji)
-        gameName = theme.rawValue
+        gameName = theme.name
         cardColor = theme.color
         topColor = theme.uiColor.darker(0.15)
         print(theme.getJson())
@@ -43,32 +43,17 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     func resetGame() {
-        let randomTheme = Theme.allCases.randomElement() ?? .halloween
+        let themes = [Theme.halloween, Theme.animals, Theme.faces, Theme.food, Theme.sport, Theme.transport, Theme.tiktok]
+        let randomTheme = themes.randomElement() ?? .halloween
         model = EmojiMemoryGame.createMemoryGame(emoji: randomTheme.emoji)
-        gameName = randomTheme.rawValue
+        gameName = randomTheme.name
         cardColor = randomTheme.color
         topColor = randomTheme.uiColor.darker(0.15)
         print(randomTheme.getJson())
     }
 }
 
-extension Theme {
-    var color: Color {
-        return Color(uiColor)
-    }
-    
-    var uiColor: UIColor {
-        switch self {
-        case .halloween: return .systemOrange
-        case .sport: return .systemBlue
-        case .animals: return .systemGreen
-        case .faces: return .systemYellow
-        case .transport: return .systemGray
-        case .food: return .systemPink
-        case .tiktok: return UIColor.black.lighter(0.25)
-        }
-    }
-}
+
 
 
 extension Theme: Codable {
@@ -92,14 +77,16 @@ extension Theme: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.rawValue, forKey: .theme)
+        try container.encode(name, forKey: .theme)
         try container.encode(emoji, forKey: .emoji)
         try container.encode(uiColor.rgb, forKey: .color)
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let name = try container.decode(String.self, forKey: .theme)
-        self = Theme(rawValue: name)!
+        name = try container.decode(String.self, forKey: .theme)
+        emoji = try container.decode([String].self, forKey: .emoji)
+        let rgb = try container.decode(UIColor.RGB.self, forKey: .color)
+        uiColor = .init(rgb)
     }
 }
